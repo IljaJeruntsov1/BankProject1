@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Регистрация</h1>
+    <p>Создайте аккаунт клиента банка</p>
+
+    <form id="registerForm">
+
+        <input id="firstName" placeholder="Имя" required>
+
+        <input id="lastName" placeholder="Фамилия" required>
+
+        <input id="dateOfBirth" type="date">
+
+        <input id="email" type="email" placeholder="Email" required>
+
+        <input id="phone" placeholder="Телефон" required>
+
+        <input id="username" placeholder="Username" required>
+
+        <input id="password" type="password" placeholder="Пароль" required>
+
+        <button type="submit">
+            Зарегистрироваться
+        </button>
+
+    </form>
+
+    <p id="message"></p>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+
