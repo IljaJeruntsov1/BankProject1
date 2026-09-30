@@ -1,11 +1,9 @@
 package com.BankServer.demo.service;
 
 import com.BankServer.demo.dto.RegisterRequest;
-import com.BankServer.demo.dto.RegisterResponse;
+import com.BankServer.demo.dto.CustomerRegisterResponse;
 import com.BankServer.demo.entity.Customer;
 import com.BankServer.demo.entity.Role;
-import com.BankServer.demo.entity.User;
-import com.BankServer.demo.entity.UserCredential;
 import com.BankServer.demo.repository.CustomerRepository;
 import com.BankServer.demo.repository.RoleRepository;
 import com.BankServer.demo.repository.UserCredentialRepository;
@@ -18,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
-public class RegistrationService {
+public class RegistrationCustomerService {
 
     private final CustomerRepository customerRepository;
     private final UserRepository userRepository;
@@ -26,7 +24,7 @@ public class RegistrationService {
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public RegistrationService(
+    public RegistrationCustomerService(
             CustomerRepository customerRepository,
             UserRepository userRepository,
             UserCredentialRepository userCredentialRepository,
@@ -41,7 +39,7 @@ public class RegistrationService {
     }
 
     @Transactional
-    public RegisterResponse register(RegisterRequest request) {
+    public CustomerRegisterResponse register(RegisterRequest request) {
 
         if (customerRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email already exists");
@@ -55,8 +53,6 @@ public class RegistrationService {
             throw new RuntimeException("Username already exists");
         }
 
-        Role clientRole = roleRepository.findByName("CLIENT")
-                .orElseThrow();
 
         LocalDateTime now = LocalDateTime.now();
 
@@ -74,39 +70,15 @@ public class RegistrationService {
 
         customer = customerRepository.save(customer);
 
-        User user = new User();
 
-        user.setCustomer(customer);
-        user.setUsername(request.getUsername());
-        user.setStatus("ACTIVE");
-        user.setRole(clientRole);
-        user.setCreatedAt(now);
-        user.setUpdatedAt(now);
+        System.out.println("Customer ID: " + customer.getId());
+        System.out.println("Customer Number: " + customer.getCustomerNumber());
 
-        user = userRepository.save(user);
-
-        UserCredential credential = new UserCredential();
-
-        credential.setUser(user);
-        credential.setPasswordHash(
-                passwordEncoder.encode(request.getPassword())
-        );
-        credential.setPasswordChangedAt(now);
-        credential.setFailedLoginAttempts(0);
-        credential.setLockedUntil(null);
-        credential.setCreatedAt(now);
-        credential.setUpdatedAt(now);
-
-        userCredentialRepository.save(credential);
-
-        return new RegisterResponse(
-                user.getId(),
+        return new CustomerRegisterResponse(
                 customer.getId(),
-                customer.getCustomerNumber(),
-                user.getUsername(),
-                user.getRole().getName(),
-                user.getStatus()
+                customer.getCustomerNumber()
         );
+
     }
 
     private String generateCustomerNumber() {
@@ -117,4 +89,30 @@ public class RegistrationService {
                         .substring(0, 12)
                         .toUpperCase();
     }
+
+
+    //        User user = new User();
+//
+//        user.setCustomer(customer);
+//        user.setUsername(request.getUsername());
+//        user.setStatus("ACTIVE");
+//        user.setRole(clientRole);
+//        user.setCreatedAt(now);
+//        user.setUpdatedAt(now);
+//
+//        user = userRepository.save(user);
+//
+//        UserCredential credential = new UserCredential();
+//
+//        credential.setUser(user);
+//        credential.setPasswordHash(
+//                passwordEncoder.encode(request.getPassword())
+//        );
+//        credential.setPasswordChangedAt(now);
+//        credential.setFailedLoginAttempts(0);
+//        credential.setLockedUntil(null);
+//        credential.setCreatedAt(now);
+//        credential.setUpdatedAt(now);
+//
+//        userCredentialRepository.save(credential);
 }
