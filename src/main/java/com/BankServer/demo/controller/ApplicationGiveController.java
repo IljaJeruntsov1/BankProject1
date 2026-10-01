@@ -23,4 +23,11 @@ public class ApplicationGiveController {
 
         return applicationService.createNewTicket(request);
     }
+
+    @PostMapping("/approveTicket/{userId}")
+    public ResponseEntity<?> updateTicketStatus(
+            @PathVariable Long userId) {
+
+        return applicationService.approveApplication(userId);
+    }
 }

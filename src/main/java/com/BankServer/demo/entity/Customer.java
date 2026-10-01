@@ -13,6 +13,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @Column(name = "customer_number", nullable = false, unique = true, length = 30)
     private String customerNumber;
 
