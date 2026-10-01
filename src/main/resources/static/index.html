@@ -1,174 +1,258 @@
-```html
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Регистрация — Bank</title>
+    <title>SEB Bank</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<header class="header">
+    <div class="container header-content">
 
-    <div class="logo">
-        <div class="logo-icon">B</div>
-        <div class="logo-name">Bank</div>
+        <a href="/" class="logo">Bank</a>
+
+        <nav class="navigation">
+            <a href="#services">Услуги</a>
+            <a href="#about">О банке</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="header-buttons">
+            <a href="/login.html" class="btn btn-outline">
+                Войти
+            </a>
+
+            <a href="/register.html" class="btn btn-primary">
+                Стать клиентом
+            </a>
+        </div>
+
     </div>
+</header>
 
-    <div class="card">
 
-        <h1>Создать аккаунт</h1>
+<main>
 
-        <p class="subtitle">
-            Заполните данные, чтобы стать клиентом банка.
-            После регистрации необходимо будет подтвердить вашу личность.
-        </p>
+    <section class="hero">
 
-        <form action="/auth/register" method="POST">
+        <div class="container hero-content">
 
-            <div class="form-group">
-                <label for="firstName">Имя</label>
+            <div class="hero-text">
 
-                <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        placeholder="Иван"
-                        autocomplete="given-name"
-                        required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="lastName">Фамилия</label>
-
-                <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Иванов"
-                        autocomplete="family-name"
-                        required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-
-                <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="ivan@example.com"
-                        autocomplete="email"
-                        required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Номер телефона</label>
-
-                <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        placeholder="+372 5555 5555"
-                        autocomplete="tel"
-                        required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="password">Пароль</label>
-
-                <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Введите пароль"
-                        autocomplete="new-password"
-                        minlength="8"
-                        required
-                >
-
-                <span class="hint">
-                    Минимум 8 символов
+                <span class="label">
+                    Банк для вашей жизни
                 </span>
+
+                <h1>
+                    Простые банковские решения
+                    <span>на каждый день</span>
+                </h1>
+
+                <p>
+                    Управляйте счетами, картами и финансами
+                    удобно и безопасно.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="/register.html" class="btn btn-primary btn-large">
+                        Стать клиентом
+                    </a>
+
+                    <a href="/login.html" class="btn btn-outline btn-large">
+                        Войти в банк
+                    </a>
+
+                </div>
+
             </div>
 
-            <div class="form-group">
-                <label for="confirmPassword">
-                    Подтвердите пароль
-                </label>
+        </div>
 
-                <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        placeholder="Повторите пароль"
-                        autocomplete="new-password"
-                        minlength="8"
-                        required
-                >
+    </section>
+
+
+    <section id="services" class="section">
+
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Наши услуги</h2>
+
+                <p>
+                    Всё необходимое для управления вашими финансами
+                </p>
             </div>
 
-            <div class="checkbox">
-                <input
-                        type="checkbox"
-                        id="terms"
-                        name="terms"
-                        required
-                >
 
-                <label for="terms">
-                    Я принимаю
-                    <a href="/terms">условия обслуживания</a>
-                    и
-                    <a href="/privacy">политику конфиденциальности</a>.
-                </label>
+            <div class="services">
+
+                <div class="service">
+
+                    <div class="service-icon">
+                        €
+                    </div>
+
+                    <h3>Счета</h3>
+
+                    <p>
+                        Открывайте и управляйте банковскими счетами
+                        в удобном формате.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">
+                        №
+                    </div>
+
+                    <h3>Банковские карты</h3>
+
+                    <p>
+                        Оплачивайте покупки онлайн и в магазинах
+                        с помощью банковской карты.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-icon">
+                        %
+                    </div>
+
+                    <h3>Кредиты</h3>
+
+                    <p>
+                        Получайте финансирование для личных
+                        и крупных покупок.
+                    </p>
+
+                </div>
+
             </div>
 
-            <button type="submit">
-                Создать аккаунт
-            </button>
+        </div>
 
-        </form>
+    </section>
 
-        <div class="login-link">
-            Уже есть аккаунт?
-            <a href="/login">Войти</a>
+
+    <section id="about" class="about">
+
+        <div class="container">
+
+            <div class="about-content">
+
+                <div>
+                    <h2>
+                        Современный банк
+                    </h2>
+
+                    <p>
+                        Управляйте своими финансами через интернет-банк
+                        с компьютера или мобильного устройства.
+                    </p>
+
+                    <p>
+                        Мы делаем банковские услуги понятными,
+                        доступными и удобными.
+                    </p>
+                </div>
+
+                <div class="about-box">
+
+                    <strong>24/7</strong>
+
+                    <span>
+                        Доступ к вашим финансам
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="contacts" class="section">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <h2>Контакты</h2>
+
+                <p>
+                    Мы готовы помочь вам
+                </p>
+
+            </div>
+
+            <div class="contacts">
+
+                <div>
+                    <strong>Телефон</strong>
+                    <p>+372 600 0000</p>
+                </div>
+
+                <div>
+                    <strong>Email</strong>
+                    <p>info@seb.example</p>
+                </div>
+
+                <div>
+                    <strong>Поддержка</strong>
+                    <p>24 часа в сутки</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container footer-content">
+
+        <div>
+            <div class="footer-logo">SEB</div>
+
+            <p>
+                Банк для вашей повседневной жизни.
+            </p>
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#">Конфиденциальность</a>
+            <a href="#">Условия использования</a>
+            <a href="#">Безопасность</a>
+
         </div>
 
     </div>
 
-    <div class="security-note">
-        🔒 Ваши данные передаются по защищённому соединению
+    <div class="container copyright">
+        © 2026 SEB Bank
     </div>
 
-</div>
-
-<script>
-    const form = document.querySelector("form");
-
-    form.addEventListener("submit", function (event) {
-
-        const password =
-            document.getElementById("password").value;
-
-        const confirmPassword =
-            document.getElementById("confirmPassword").value;
-
-        if (password !== confirmPassword) {
-            event.preventDefault();
-
-            alert("Пароли не совпадают.");
-        }
-    });
-</script>
+</footer>
 
 </body>
 </html>

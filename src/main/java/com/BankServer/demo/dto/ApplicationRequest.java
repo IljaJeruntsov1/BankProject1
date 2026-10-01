@@ -1,20 +1,27 @@
+
 package com.BankServer.demo.dto;
 
 import java.time.LocalDate;
 
-public class RegisterRequest {
+public class ApplicationRequest {
 
     private String firstName;
+
     private String lastName;
+
     private LocalDate dateOfBirth;
+
     private String email;
+
     private String phone;
 
-    private String username;
-    private String password;
 
-    public RegisterRequest() {
+
+    
+
+    public ApplicationRequest() {
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -24,6 +31,7 @@ public class RegisterRequest {
         this.firstName = firstName;
     }
 
+
     public String getLastName() {
         return lastName;
     }
@@ -31,6 +39,7 @@ public class RegisterRequest {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -40,6 +49,7 @@ public class RegisterRequest {
         this.dateOfBirth = dateOfBirth;
     }
 
+
     public String getEmail() {
         return email;
     }
@@ -48,6 +58,7 @@ public class RegisterRequest {
         this.email = email;
     }
 
+
     public String getPhone() {
         return phone;
     }
@@ -55,20 +66,5 @@ public class RegisterRequest {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
+
