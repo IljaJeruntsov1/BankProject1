@@ -89,7 +89,8 @@ public class applicationService {
         user.setCustomer(customerRepository.getById(customer.getId()));
         user.setStatus("ACTIVE");
         user.setUpdatedAt(LocalDateTime.now());
-        user.setUsername(customer.getFirstName()+generateCustomerUsername());
+        String username =customer.getFirstName()+generateCustomerUsername();
+        user.setUsername(username);
 
         String randomPassword = generateRandomPassword();
         String hashedPassword = passwordEncoder.encode(randomPassword);
@@ -110,8 +111,10 @@ public class applicationService {
 
         emailService.sendPasswordEmail(
                 customer.getEmail(),
-                customer.getFirstName(),
+                customer.getFirstName(),username,
                 randomPassword
+
+
         );
 
         return ResponseEntity

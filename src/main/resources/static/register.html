@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Стать клиентом | Bank</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a href="/" class="logo">
+            Bank
+        </a>
+
+        <nav class="navigation">
+
+            <a href="/">
+                Главная
+            </a>
+
+            <a href="/#services">
+                Услуги
+            </a>
+
+            <a href="/#about">
+                О банке
+            </a>
+
+        </nav>
+
+        <div class="header-buttons">
+
+            <a
+                    href="/login.html"
+                    class="btn btn-outline"
+            >
+                Войти
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="form-page">
+
+    <div class="form-card">
+
+        <div class="section-header">
+
+            <span class="label">
+                Новый клиент
+            </span>
+
+            <h1>
+                Стать клиентом
+            </h1>
+
+            <p>
+                Заполните форму для подачи заявки.
+            </p>
+
+        </div>
+
+
+        <form id="applicationForm">
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="firstName">
+                        Имя
+                    </label>
+
+                    <input
+                            id="firstName"
+                            type="text"
+                            placeholder="Иван"
+                            required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="lastName">
+                        Фамилия
+                    </label>
+
+                    <input
+                            id="lastName"
+                            type="text"
+                            placeholder="Иванов"
+                            required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="dateOfBirth">
+                    Дата рождения
+                </label>
+
+                <input
+                        id="dateOfBirth"
+                        type="date"
+                        required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                        id="email"
+                        type="email"
+                        placeholder="ivan@example.com"
+                        required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Телефон
+                </label>
+
+                <input
+                        id="phone"
+                        type="tel"
+                        placeholder="+37255555555"
+                        required
+                >
+
+            </div>
+
+
+            <button
+                    type="submit"
+                    class="btn btn-primary btn-large full-width"
+            >
+                Отправить заявку
+            </button>
+
+        </form>
+
+
+        <div id="applicationMessage"></div>
+
+
+        <div class="form-bottom">
+
+            Уже есть аккаунт?
+
+            <a href="/login.html">
+                Войти
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>

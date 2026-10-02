@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Интернет-банк | Bank</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a href="/" class="logo">
+            Bank
+        </a>
+
+        <nav class="navigation">
+
+            <a href="/dashboard.html">
+                Главная
+            </a>
+
+            <a href="#">
+                Счета
+            </a>
+
+            <a href="#">
+                Карты
+            </a>
+
+            <a href="#">
+                Платежи
+            </a>
+
+        </nav>
+
+        <div class="header-buttons">
+
+            <button
+                    onclick="logout()"
+                    class="btn btn-outline"
+            >
+                Выйти
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard-page">
+
+    <div class="container">
+
+        <div class="dashboard-header">
+
+            <span class="label">
+                Интернет-банк
+            </span>
+
+            <h1>
+                Добро пожаловать,
+                <span id="dashboardUsername">
+                    клиент
+                </span>
+            </h1>
+
+            <p>
+                Здесь вы сможете управлять своими банковскими услугами.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+
+                <span>
+                    Баланс
+                </span>
+
+                <strong>
+                    €0.00
+                </strong>
+
+                <p>
+                    Доступный баланс
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <span>
+                    Состояние
+                </span>
+
+                <strong>
+                    Активен
+                </strong>
+
+                <p>
+                    Ваш банковский профиль активен.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card large">
+
+                <span>
+                    Банковские счета
+                </span>
+
+                <h2>
+                    Пока нет счетов
+                </h2>
+
+                <p>
+                    Здесь будут отображаться ваши банковские счета.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card large">
+
+                <span>
+                    Банковские карты
+                </span>
+
+                <h2>
+                    Пока нет карт
+                </h2>
+
+                <p>
+                    Здесь будут отображаться ваши банковские карты.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="/script.js"></script>
+
+</body>
+
+</html>

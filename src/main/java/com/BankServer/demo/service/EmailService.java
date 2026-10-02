@@ -16,18 +16,27 @@ public class EmailService {
     public void sendPasswordEmail(
             String email,
             String firstName,
+            String username,
             String password) {
 
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setTo(email);
-        message.setSubject("Your account has been created");
+
+        message.setSubject("Your bank account has been created");
 
         message.setText(
                 "Hello " + firstName + ",\n\n" +
-                        "Your account has been created successfully.\n\n" +
-                        "Your temporary password is: " + password + "\n\n" +
-                        "Please change your password after logging in."
+                        "Your bank account has been created successfully.\n\n" +
+
+                        "Your login details:\n\n" +
+
+                        "Username: " + username + "\n" +
+                        "Temporary password: " + password + "\n\n" +
+
+                        "Please change your password after logging in.\n\n" +
+                        "Best regards,\n" +
+                        "Bank"
         );
 
         mailSender.send(message);
