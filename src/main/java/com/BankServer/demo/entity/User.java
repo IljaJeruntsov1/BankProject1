@@ -1,5 +1,6 @@
 package com.BankServer.demo.entity;
 
+import com.BankServer.demo.service.applicationService;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -28,6 +29,13 @@ public class User {
 
     @Column(name = "last_login_at")
     private LocalDateTime lastLoginAt;
+
+    public void setId(Long id) {
+
+    }
+
+
+
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
@@ -66,13 +74,7 @@ public class User {
         this.status = status;
     }
 
-    public Role getRole() {
-        return role;
-    }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     public LocalDateTime getLastLoginAt() {
         return lastLoginAt;
@@ -96,5 +98,13 @@ public class User {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
