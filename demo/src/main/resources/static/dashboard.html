@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Интернет-банк</title>
+
+    <link
+            rel="stylesheet"
+            href="dashboard.css"
+    >
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="top-left">
+        Частным лицам
+    </div>
+
+    <div class="logo">
+        Bank
+    </div>
+
+    <div class="top-right">
+
+        <span class="username" id="userName">
+            Загрузка...
+        </span>
+
+        <span
+                class="logout"
+                onclick="logout()"
+        >
+            Выйти
+        </span>
+
+    </div>
+
+</header>
+
+
+<div class="last-login">
+    Последний вход
+</div>
+
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="collapse">
+            ☰
+        </div>
+
+        <div class="search">
+
+            <span>⌕</span>
+
+            <input
+                    type="text"
+                    placeholder="Поиск"
+            >
+
+        </div>
+
+
+        <nav>
+
+            <a
+                    href="/"
+                    class="menu-item"
+            >
+                <span class="menu-icon">⌂</span>
+                <span>Главная страница</span>
+            </a>
+
+
+            <a
+                    href="#"
+                    class="menu-item"
+            >
+                <span class="menu-icon">⇄</span>
+                <span>Платежи</span>
+            </a>
+
+
+            <a
+                    href="dashboard.html"
+                    class="menu-item active"
+            >
+                <span class="menu-icon">▣</span>
+                <span>Счета</span>
+            </a>
+
+
+            <a
+                    href="#"
+                    class="menu-item"
+            >
+                <span class="menu-icon">▤</span>
+                <span>Карты</span>
+            </a>
+
+
+            <a
+                    href="#"
+                    class="menu-item"
+            >
+                <span class="menu-icon">◉</span>
+                <span>Накопления и пенсия</span>
+            </a>
+
+
+            <a
+                    href="#"
+                    class="menu-item"
+            >
+                <span class="menu-icon">▥</span>
+                <span>Инвестиции</span>
+            </a>
+
+
+            <a
+                    href="#"
+                    class="menu-item"
+            >
+                <span class="menu-icon">♡</span>
+                <span>Страхование</span>
+            </a>
+
+
+            <a
+                    href="#"
+                    class="menu-item"
+            >
+                <span class="menu-icon">▱</span>
+                <span>Кредиты и лизинг</span>
+            </a>
+
+
+            <a
+                    href="#"
+                    class="menu-item"
+            >
+                <span class="menu-icon">⋯</span>
+                <span>Дополнительные услуги</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <div class="account-card">
+
+            <div class="section-heading">
+
+                <h2>
+                    Расчетные счета
+                </h2>
+
+                <span class="up-arrow">
+                    ↑
+                </span>
+
+            </div>
+
+
+            <div class="balance">
+
+                <p>
+                    Общий доступный баланс
+                </p>
+
+                <div
+                        id="totalBalance"
+                        class="balance-value"
+                >
+                    Загрузка...
+                </div>
+
+            </div>
+
+
+            <button
+                    id="newPaymentButton"
+                    class="new-payment"
+            >
+                Новый платеж
+            </button>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Счет
+                        </th>
+
+                        <th>
+                            Баланс
+                        </th>
+
+                        <th>
+                            Зарезервировано
+                        </th>
+
+                        <th>
+                            Доступно
+                        </th>
+
+                        <th>
+                            Валюта
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="accountsTableBody">
+
+                    <tr>
+
+                        <td colspan="5">
+                            Загрузка...
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <div class="deposit-card">
+
+            <div class="deposit-heading">
+
+                <h2>
+                    Вклады
+                </h2>
+
+                <span>
+                    ↑
+                </span>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<div class="chat-button">
+    💬
+    <small>●</small>
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Вход | Bank</title>
+
+    <link rel="stylesheet" href="   style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a href="/" class="logo">
+            Bank
+        </a>
+
+        <nav class="navigation">
+
+            <a href="/">
+                Главная
+            </a>
+
+            <a href="/#services">
+                Услуги
+            </a>
+
+            <a href="/#about">
+                О банке
+            </a>
+
+        </nav>
+
+        <div class="header-buttons">
+
+            <a
+                    href="register.html"
+                    class="btn btn-primary"
+            >
+                Стать клиентом
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="login-page">
+
+    <div class="login-card">
+
+        <div class="section-header">
+
+            <span class="label">
+                Интернет-банк
+            </span>
+
+            <h1>
+                Добро пожаловать
+            </h1>
+
+            <p>
+                Войдите в свой банковский аккаунт.
+            </p>
+
+        </div>
+
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label for="username">
+                    Логин
+                </label>
+
+                <input
+                        id="username"
+                        type="text"
+                        placeholder="Ivan48271"
+                        required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Пароль
+                </label>
+
+                <input
+                        id="password"
+                        type="password"
+                        placeholder="Введите пароль"
+                        required
+                >
+
+            </div>
+
+
+            <button
+                    type="submit"
+                    class="btn btn-primary btn-large full-width"
+            >
+                Войти
+            </button>
+
+        </form>
+
+
+        <div id="loginMessage"></div>
+
+
+        <div class="form-bottom">
+
+            Нет аккаунта?
+
+            <a href="register.html">
+                Стать клиентом
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="login.js"></script>
+
+
+</body>
+
+</html>
