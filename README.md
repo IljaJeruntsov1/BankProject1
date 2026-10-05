@@ -6,9 +6,7 @@ Internetipanga süsteemi arendamine, kasutades backend'i jaoks Java Spring Boot'
 
 Süsteem võimaldab kasutajal sisse logida ja hallata ning vaadata oma pangakontodega seotud andmeid.
 
-## Projekti eesmärk
-
-Projekti eesmärk on arendada internetipanga süsteem, kus kasutaja saab:
+## kasutaja võib
 
 - süsteemi sisse logida;
 - läbida autentimise;
@@ -38,9 +36,7 @@ Backend on loodud **Java Spring Boot** abil.
 
 Система позволяет пользователю авторизоваться и работать со своими банковскими счетами.
 
-## Цель проекта
-
-Цель проекта — разработать интернет-банк, в котором пользователь сможет:
+### пока пользователь может
 
 - войти в систему;
 - пройти аутентификацию;
