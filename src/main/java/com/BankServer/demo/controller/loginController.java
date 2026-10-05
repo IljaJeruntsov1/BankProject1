@@ -1,5 +1,6 @@
 package com.BankServer.demo.controller;
 
+import jakarta.servlet.http.HttpSession;
 import com.BankServer.demo.dto.LoginRequest;
 import com.BankServer.demo.service.loginService;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class loginController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(
-            @RequestBody LoginRequest request) {
+            @RequestBody LoginRequest request, HttpSession session) {
 
-        return loginService.login(request);
+        return loginService.login(request ,session);
     }
 }

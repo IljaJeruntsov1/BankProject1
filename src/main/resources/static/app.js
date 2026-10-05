@@ -1,197 +1,148 @@
-const API_URL = "";
+document.addEventListener("DOMContentLoaded", loadAccounts);
 
+async function loadAccounts() {
+    try {
+        const response = await fetch("/api/accounts", {
+            method: "GET",
+            credentials: "include"
+        });
 
-/* =====================================
-   APPLICATION
-===================================== */
-
-const applicationForm = document.getElementById("applicationForm");
-
-if (applicationForm) {
-
-    applicationForm.addEventListener("submit", async function (event) {
-
-        event.preventDefault();
-
-        const message = document.getElementById("applicationMessage");
-
-        const data = {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            dateOfBirth: document.getElementById("dateOfBirth").value,
-            email: document.getElementById("email").value,
-            phone: document.getElementById("phone").value
-        };
-
-        console.log("Sending application:");
-        console.log(JSON.stringify(data));
-
-        try {
-
-            const response = await fetch(
-                API_URL + "/application/create",
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify(data)
-                }
-            );
-
-            const result = await response.text();
-
-            console.log("Status:", response.status);
-            console.log("Response:", result);
-
-            if (response.ok) {
-
-                message.className = "success-message";
-
-                message.innerText =
-                    "Заявка успешно отправлена.";
-
-                applicationForm.reset();
-
-            } else {
-
-                message.className = "error-message";
-
-                message.innerText =
-                    result || "Не удалось отправить заявку.";
-            }
-
-        } catch (error) {
-
-            console.error("Application error:", error);
-
-            message.className = "error-message";
-
-            message.innerText =
-                "Не удалось подключиться к серверу.";
+        if (response.status === 401) {
+            window.location.href = "/login.html";
+            return;
         }
 
-    });
-}
-
-
-/* =====================================
-   LOGIN
-===================================== */
-
-const loginForm = document.getElementById("loginForm");
-
-if (loginForm) {
-
-    loginForm.addEventListener("submit", async function (event) {
-
-        event.preventDefault();
-
-        const message = document.getElementById("loginMessage");
-
-        const username =
-            document.getElementById("username").value;
-
-        const password =
-            document.getElementById("password").value;
-
-        const data = {
-            username: username,
-            password: password
-        };
-
-        console.log("Login:", username);
-
-        try {
-
-            const response = await fetch(
-                API_URL + "/auth/login",
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify(data)
-                }
-            );
-
-            const result = await response.text();
-
-            console.log("Login status:", response.status);
-            console.log("Login response:", result);
-
-            if (response.ok) {
-
-                localStorage.setItem(
-                    "username",
-                    username
-                );
-
-                window.location.href =
-                    "/dashboard.html";
-
-            } else {
-
-                message.className =
-                    "error-message";
-
-                message.innerText =
-                    result ||
-                    "Неверный логин или пароль.";
-            }
-
-        } catch (error) {
-
-            console.error("Login error:", error);
-
-            message.className =
-                "error-message";
-
-            message.innerText =
-                "Не удалось подключиться к серверу.";
+        if (!response.ok) {
+            throw new Error("Не удалось загрузить данные");
         }
 
-    });
-}
+        const data = await response.json();
 
+        console.log("Данные от сервера:", data);
 
-/* =====================================
-   DASHBOARD
-===================================== */
+        const userName = document.getElementById("userName");
 
-const dashboardUsername =
-    document.getElementById("dashboardUsername");
+        if (userName) {
+            userName.textContent = data.customerName;
+        }
 
-if (dashboardUsername) {
+        displayAccounts(data.accounts);
 
-    const username =
-        localStorage.getItem("username");
+    } catch (error) {
+        console.error("Ошибка загрузки данных:", error);
 
-    if (!username) {
+        const userName = document.getElementById("userName");
+        const totalBalance = document.getElementById("totalBalance");
+        const tableBody = document.getElementById("accountsTableBody");
 
-        window.location.href =
-            "/login.html";
+        if (userName) userName.textContent = "Ошибка";
+        if (totalBalance) totalBalance.textContent = "Ошибка";
 
-    } else {
-
-        dashboardUsername.innerText =
-            username;
+        if (tableBody) {
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="5">
+                        Не удалось загрузить данные счета
+                    </td>
+                </tr>
+            `;
+        }
     }
 }
 
 
-/* =====================================
-   LOGOUT
-===================================== */
+function displayAccounts(accounts) {
+    const tableBody = document.getElementById("accountsTableBody");
 
-function logout() {
+    const totalBalance = document.getElementById("totalBalance");
 
-    localStorage.removeItem("username");
 
-    window.location.href =
-        "/login.html";
+
+    if (!tableBody || !totalBalance) return;
+
+    tableBody.innerHTML = "";
+
+    if (!accounts?.length) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="5">У вас пока нет счетов</td>
+            </tr>
+        `;
+
+        totalBalance.textContent = "0,00 EUR";
+        return;
+    }
+
+    let totalAvailable = 0;
+    const currency = accounts[0].currency;
+
+    accounts.forEach(account => {
+        totalAvailable += Number(account.available);
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>
+                <strong>${escapeHtml(account.accountName)}</strong>
+                <br>
+                ${escapeHtml(account.iban)}
+            </td>
+
+            <td>${formatMoney(account.balance)}</td>
+            <td>${formatMoney(account.reserved)}</td>
+            <td>${formatMoney(account.available)}</td>
+            <td>${escapeHtml(account.currency)}</td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+
+    totalBalance.textContent =
+        `${formatMoney(totalAvailable)} ${currency}`;
+}
+
+
+function formatMoney(value) {
+    return Number(value).toFixed(2).replace(".", ",");
+}
+
+
+function escapeHtml(value) {
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+
+const logoutButton = document.getElementById("logoutButton");
+
+if (logoutButton) {
+    logoutButton.addEventListener("click", logout);
+}
+
+
+async function logout() {
+    try {
+        await fetch("/auth/logout", {
+            method: "POST",
+            credentials: "include"
+        });
+    } catch (error) {
+        console.error("Ошибка выхода:", error);
+    }
+
+    window.location.href = "/login.html";
+}
+
+
+const newPaymentButton =
+    document.getElementById("newPaymentButton");
+
+if (newPaymentButton) {
+    newPaymentButton.addEventListener("click", () => {
+        console.log("Открываем форму нового платежа");
+    });
 }

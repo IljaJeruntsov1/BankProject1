@@ -1,81 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bank</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Bank — Главная</title>
 
     <link rel="stylesheet" href="/style.css">
+
 </head>
+
 
 <body>
 
+
 <header class="header">
+
     <div class="container header-content">
 
-        <a href="/" class="logo">Bank</a>
+        <a href="/" class="logo">
+            Bank
+        </a>
+
 
         <nav class="navigation">
-            <a href="#services">Услуги</a>
-            <a href="#about">О банке</a>
-            <a href="#contacts">Контакты</a>
+
+            <a href="/">
+                Главная
+            </a>
+
+            <a href="#services">
+                Услуги
+            </a>
+
+            <a href="#about">
+                О банке
+            </a>
+
         </nav>
+
 
         <div class="header-buttons">
 
-            <a href="/login.html" class="btn btn-outline">
+            <a
+                    href="/login.html"
+                    class="btn btn-primary"
+            >
                 Войти
             </a>
 
-            <a href="/register.html" class="btn btn-primary">
+            <a
+                    href="/register.html"
+                    class="btn btn-secondary"
+            >
                 Стать клиентом
             </a>
 
         </div>
 
     </div>
+
 </header>
+
 
 
 <main>
 
+
+    <!-- ================================= -->
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <!-- ================================= -->
+
     <section class="hero">
 
-        <div class="container hero-content">
+        <div class="container">
 
-            <div class="hero-text">
+            <div class="hero-content">
 
                 <span class="label">
-                    Банк для вашей жизни
+                    BANK
                 </span>
 
+
                 <h1>
-                    Простые банковские решения
-                    <span>на каждый день</span>
+                    Ваш банк —
+                    всегда рядом
                 </h1>
 
+
                 <p>
-                    Управляйте счетами, картами и финансами
-                    удобно и безопасно.
+                    Управляйте своими финансами,
+                    оплачивайте счета и совершайте
+                    переводы удобно и безопасно.
                 </p>
+
 
                 <div class="hero-buttons">
 
                     <a
-                            href="/register.html"
+                            href="/login.html"
                             class="btn btn-primary btn-large"
+                    >
+                        Войти в интернет-банк
+                    </a>
+
+
+                    <a
+                            href="/register.html"
+                            class="btn btn-secondary btn-large"
                     >
                         Стать клиентом
                     </a>
 
-                    <a
-                            href="/login.html"
-                            class="btn btn-outline btn-large"
-                    >
-                        Войти в банк
-                    </a>
-
                 </div>
 
             </div>
@@ -85,69 +127,126 @@
     </section>
 
 
-    <section id="services" class="section">
+
+    <!-- ================================= -->
+    <!-- УСЛУГИ -->
+    <!-- ================================= -->
+
+    <section
+            id="services"
+            class="section"
+    >
 
         <div class="container">
 
             <div class="section-header">
 
-                <h2>Наши услуги</h2>
+                <span class="label">
+                    Наши услуги
+                </span>
+
+
+                <h2>
+                    Всё необходимое
+                    в одном банке
+                </h2>
+
 
                 <p>
-                    Всё необходимое для управления вашими финансами
+                    Пользуйтесь банковскими услугами
+                    онлайн и управляйте своими
+                    финансами в любое время.
                 </p>
 
             </div>
 
 
-            <div class="services">
+            <div class="services-grid">
 
-                <div class="service">
 
-                    <div class="service-icon">
-                        €
-                    </div>
+                <div class="service-card">
 
-                    <h3>Счета</h3>
+                    <h3>
+                        Счета
+                    </h3>
 
                     <p>
-                        Открывайте и управляйте банковскими счетами
-                        в удобном формате.
+                        Открывайте и управляйте
+                        банковскими счетами онлайн.
                     </p>
 
                 </div>
 
 
-                <div class="service">
+                <div class="service-card">
 
-                    <div class="service-icon">
-                        №
-                    </div>
-
-                    <h3>Банковские карты</h3>
+                    <h3>
+                        Платежи
+                    </h3>
 
                     <p>
-                        Оплачивайте покупки онлайн и в магазинах
-                        с помощью банковской карты.
+                        Совершайте переводы и
+                        оплачивайте счета быстро.
                     </p>
 
                 </div>
 
 
-                <div class="service">
+                <div class="service-card">
 
-                    <div class="service-icon">
-                        %
-                    </div>
-
-                    <h3>Кредиты</h3>
+                    <h3>
+                        Карты
+                    </h3>
 
                     <p>
-                        Получайте финансирование для личных
-                        и крупных покупок.
+                        Управляйте банковскими картами
+                        и контролируйте расходы.
                     </p>
 
                 </div>
+
+
+                <div class="service-card">
+
+                    <h3>
+                        Накопления
+                    </h3>
+
+                    <p>
+                        Откладывайте деньги и
+                        формируйте финансовую подушку.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <h3>
+                        Инвестиции
+                    </h3>
+
+                    <p>
+                        Получайте доступ к возможностям
+                        инвестирования.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <h3>
+                        Кредиты
+                    </h3>
+
+                    <p>
+                        Подберите подходящее
+                        финансирование для своих целей.
+                    </p>
+
+                </div>
+
 
             </div>
 
@@ -156,126 +255,98 @@
     </section>
 
 
-    <section id="about" class="about">
 
-        <div class="container">
+    <!-- ================================= -->
+    <!-- О БАНКЕ -->
+    <!-- ================================= -->
 
-            <div class="about-content">
-
-                <div>
-
-                    <h2>
-                        Современный банк
-                    </h2>
-
-                    <p>
-                        Управляйте своими финансами через интернет-банк
-                        с компьютера или мобильного устройства.
-                    </p>
-
-                    <p>
-                        Мы делаем банковские услуги понятными,
-                        доступными и удобными.
-                    </p>
-
-                </div>
-
-                <div class="about-box">
-
-                    <strong>24/7</strong>
-
-                    <span>
-                        Доступ к вашим финансам
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section id="contacts" class="section">
+    <section
+            id="about"
+            class="section about-section"
+    >
 
         <div class="container">
 
             <div class="section-header">
 
-                <h2>Контакты</h2>
+                <span class="label">
+                    О банке
+                </span>
+
+
+                <h2>
+                    Современный банк
+                    для ваших финансов
+                </h2>
+
 
                 <p>
-                    Мы готовы помочь вам
+                    Мы создаём удобные цифровые
+                    банковские сервисы, которые
+                    помогают контролировать деньги
+                    и решать финансовые задачи.
                 </p>
-
-            </div>
-
-            <div class="contacts">
-
-                <div>
-                    <strong>Телефон</strong>
-                    <p>+372 600 0000</p>
-                </div>
-
-                <div>
-                    <strong>Email</strong>
-                    <p>info@bank.example</p>
-                </div>
-
-                <div>
-                    <strong>Поддержка</strong>
-                    <p>24 часа в сутки</p>
-                </div>
 
             </div>
 
         </div>
 
     </section>
+
+
+
+    <!-- ================================= -->
+    <!-- CTA -->
+    <!-- ================================= -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta-content">
+
+                <h2>
+                    Уже являетесь клиентом?
+                </h2>
+
+
+                <p>
+                    Войдите в интернет-банк,
+                    чтобы управлять своими счетами.
+                </p>
+
+
+                <a
+                        href="/login.html"
+                        class="btn btn-primary btn-large"
+                >
+                    Войти в интернет-банк
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
 
 </main>
 
 
+
 <footer class="footer">
 
-    <div class="container footer-content">
+    <div class="container">
 
-        <div>
+        <p>
+            © 2026 Bank. Все права защищены.
+        </p>
 
-            <div class="footer-logo">
-                Bank
-            </div>
-
-            <p>
-                Банк для вашей повседневной жизни.
-            </p>
-
-        </div>
-
-        <div class="footer-links">
-
-            <a href="#">
-                Конфиденциальность
-            </a>
-
-            <a href="#">
-                Условия использования
-            </a>
-
-            <a href="#">
-                Безопасность
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="container copyright">
-        © 2026 Bank
     </div>
 
 </footer>
-<script src="app.js"></script>
+
+
 </body>
+
 </html>
